@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo running migrate!
+
+DESTINATION="./destinationFile"
+SOURCE="./sourceFile"
+
+#  this script will check for  a source file and copy it to the destination
+if [ -f ${SOURCE} ]; then
+    echo "copyting ${SOURCE} to ${DESTINATION}"
+    cat ${SOURCE}
+    cp ${SOURCE} ${DESTINATION}
+else
+   echo "There was no file ${DESTINATION}"
+fi
