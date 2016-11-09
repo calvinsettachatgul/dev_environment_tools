@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# This is a script that will check the existance of configuration files and copy them to a central location
+
 echo running migrate!
 
 DESTINATION="./destinationFile"
 SOURCE="./sourceFile"
+
+files=( "file1" "file2" "file3" "file4" )
 
 #  this script will check for  a source file and copy it to the destination
 if [ -f ${SOURCE} ]; then
@@ -14,13 +18,22 @@ else
    echo "There was no file ${DESTINATION}"
 fi
 
+# copy a file from source to destination
 copy (){
-	if [ -z "$1" ]
+	if [ -f "$1" ]
 	then
-		echo "$1"
+		cat $1
 	else
 		echo "$1 does not exist"
 	fi
 }
 
+# test copy function
 copy "./hello"
+
+# used to iterate over the array of files to call the copy function
+# for now only cat the file
+for i in "${files[@]}"
+do
+	cat $i
+done
