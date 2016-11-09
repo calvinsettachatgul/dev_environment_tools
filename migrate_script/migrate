@@ -13,3 +13,14 @@ if [ -f ${SOURCE} ]; then
 else
    echo "There was no file ${DESTINATION}"
 fi
+
+copy (){
+	if [ -z "$1" ]
+	then
+		echo "$1"
+	else
+		echo "$1 does not exist"
+	fi
+}
+
+copy "./hello"
