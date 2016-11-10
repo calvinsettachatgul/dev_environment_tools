@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# First Working version 
 # This is a script that will check the existance of configuration files and copy them to a central location
+
 
 echo running migrate!
 
