@@ -19,8 +19,7 @@ files=( ".vimrc"
 copy (){
 	if [ -f "./$1" ]
 	then
-		ls "$HOME/$1" 
-		ls $DESTINATION
+		cp "$HOME/$1" "$DESTINATION"
 		echo "copied $1"
 	else
 		echo "$HOME/$1 does not exist"
