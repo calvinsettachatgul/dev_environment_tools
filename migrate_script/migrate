@@ -20,7 +20,9 @@ copy (){
 	if [ -f "./$1" ]
 	then
 		cp "$HOME/$1" "$2"
+		cp "$1" "${$1:1}"
 		echo "copied $1"
+		
 	else
 		echo "$HOME/$1 does not exist"
 		echo "$HOME/$1 not copied "
