@@ -19,6 +19,8 @@ else
 fi
 
 # copy a file from source to destination
+# source is arg1
+# destination is arg2
 copy (){
 	if [ -f "$1" ]
 	then
