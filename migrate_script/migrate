@@ -4,8 +4,8 @@
 
 echo running migrate!
 
-DESTINATION="./destinationFile"
-SOURCE="./sourceFile"
+DESTINATION="$HOME/google\ drive/calvins_dev_environment"
+SOURCE=""
 
 files=( ".vimrc"
 	".bash_profile" 
@@ -21,7 +21,8 @@ files=( ".vimrc"
 copy (){
 	if [ -f "$1" ]
 	then
-		cat $1
+		cp $1 ${DESTINATION}/$1
+		echo copied $1
 	else
 		echo "$1 does not exist"
 	fi
@@ -38,4 +39,15 @@ do
 done
 
 # change to previous directory
+cd -
+
+cd $HOME/google\ drive/calvins_dev_environment
+
+git status
+
+git add .
+
+git commit -m ${date}
+
+# change the to previous directory
 cd -
