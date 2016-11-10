@@ -20,7 +20,7 @@ copy (){
 	if [ -f "./$1" ]
 	then
 		cp "$HOME/$1" "$2"
-		# echo "$2/${1:1}"
+		# copy the file name without the dot as well
 		cp "$1" "$2/${1:1}"
 		echo "copied $1"
 		
@@ -42,17 +42,13 @@ done
 
 # change to previous directory
 cd -
-
 cd "$DESTINATION"
 git status
-
 git add .
-
 git remote -v
-
 # argument to make the commit followed by the date
 git commit -m "$1 $(date)"
-
 git push origin master
+
 # change the to previous directory
 cd -
