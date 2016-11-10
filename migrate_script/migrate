@@ -19,10 +19,11 @@ files=( ".vimrc"
 copy (){
 	if [ -f "./$1" ]
 	then
-		cp "$HOME/$1" "$DESTINATION"
+		cp "$HOME/$1" $2
 		echo "copied $1"
 	else
 		echo "$HOME/$1 does not exist"
+		echo "$HOME/$1 not copied "
 	fi
 }
 
@@ -33,7 +34,7 @@ cd $HOME
 # for now only cat the file
 for i in "${files[@]}"
 do
-	copy $i
+	copy $i "$DESTINATION"
 done
 
 # change to previous directory
