@@ -47,7 +47,7 @@ git status
 
 git add .
 
-git commit -m ${date}
+git commit -m "${date}"
 
 # change the to previous directory
 cd -
