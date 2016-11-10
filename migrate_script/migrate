@@ -40,7 +40,6 @@ done
 cd -
 
 cd "$DESTINATION"
-ls 
 git status
 
 git add .
@@ -52,5 +51,3 @@ git commit -m "$(date)"
 git push origin master
 # change the to previous directory
 cd -
-
-ls .
