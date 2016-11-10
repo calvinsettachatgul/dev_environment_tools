@@ -4,27 +4,26 @@
 
 echo running migrate!
 
-DESTINATION="$HOME/google\ drive/calvins_dev_environment"
+DESTINATION=$HOME/Google\ Drive/calvins_dev_environment
 SOURCE=""
 
 files=( ".vimrc"
 	".bash_profile" 
 	".bashrc"
 	".tmux.conf" 
-	".git_ignore" 
-	"alias_list" 
-	".gitingore_global")
+	".gitignore_global")
 
 # copy a file from source to destination
 # source is arg1
 # destination is arg2
 copy (){
-	if [ -f "$1" ]
+	if [ -f "./$1" ]
 	then
-		cp $1 ${DESTINATION}/$1
-		echo copied $1
+		ls "$HOME/$1" 
+		ls $DESTINATION
+		echo "copied $1"
 	else
-		echo "$1 does not exist"
+		echo "$HOME/$1 does not exist"
 	fi
 }
 
