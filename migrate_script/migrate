@@ -46,7 +46,8 @@ git add .
 
 git remote -v
 
-git commit -m "$(date)"
+# argument to make the commit followed by the date
+git commit -m "$1 $(date)"
 
 git push origin master
 # change the to previous directory
