@@ -39,13 +39,18 @@ done
 # change to previous directory
 cd -
 
-cd $HOME/google\ drive/calvins_dev_environment
-
+cd "$DESTINATION"
+ls 
 git status
 
 git add .
 
-git commit -m "${date}"
+git remote -v
 
+git commit -m "$(date)"
+
+git push origin master
 # change the to previous directory
 cd -
+
+ls .
