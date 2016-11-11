@@ -39,9 +39,9 @@ for i in "${files[@]}"
 do
 	echo "========================="
 	echo "========================="
-	echo "copy from google drive to $HOME"
-	copy $i "$DESTINATION"
 	echo "copy from $HOME to google drive"
+	copy $i "$DESTINATION"
+	echo "copy from google drive to home"
 	echo "$i" "$HOME"
 done
 
