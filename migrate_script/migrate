@@ -42,7 +42,7 @@ do
 	echo "copy from $HOME to google drive"
 	copy $i "$DESTINATION"
 	echo "copy from google drive to home"
-	copy "$i" "$HOME"
+	echo "$DESTINATION/$i" "$HOME"
 done
 
 # change to previous directory
