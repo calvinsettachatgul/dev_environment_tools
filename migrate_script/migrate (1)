@@ -4,7 +4,7 @@
 
 echo running migrate!
 
-DESTINATION="$HOME/Google\ Drive/calvins_dev_environment"
+DESTINATION=$HOME/Google\ Drive/calvins_dev_environment
 SOURCE=""
 
 files=( ".vimrc"
@@ -20,7 +20,7 @@ copy (){
 	if [ -f "./$1" ]
 	then
 		cp "$HOME/$1" "$2"
-		# echo "$2/${1:1}"
+		# copy the file name without the dot as well
 		cp "$1" "$2/${1:1}"
 		echo "copied $1"
 		
@@ -37,25 +37,18 @@ cd $HOME
 # for now only cat the file
 for i in "${files[@]}"
 do
-	echo "copy from google drive to $HOME"
 	copy $i "$DESTINATION"
-	echo "copy from $HOME to google drive"
-	copy "$DESTINATION/$i" "$HOME"
 done
 
 # change to previous directory
 cd -
-
 cd "$DESTINATION"
 git status
-
 git add .
-
 git remote -v
-
 # argument to make the commit followed by the date
 git commit -m "$1 $(date)"
-
 git push origin master
+
 # change the to previous directory
 cd -
