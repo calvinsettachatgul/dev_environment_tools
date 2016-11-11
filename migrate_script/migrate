@@ -37,10 +37,12 @@ cd $HOME
 # for now only cat the file
 for i in "${files[@]}"
 do
+	echo "========================="
+	echo "========================="
 	echo "copy from google drive to $HOME"
 	copy $i "$DESTINATION"
 	echo "copy from $HOME to google drive"
-	copy "$DESTINATION/$i" "$HOME"
+	echo "$i" "$HOME"
 done
 
 # change to previous directory
