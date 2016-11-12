@@ -5,7 +5,7 @@
 echo running migrate!
 
 DESTINATION=$HOME/Google\ Drive/calvins_dev_environment
-SOURCE=""
+SOURCE="$HOME"
 
 files=( ".vimrc"
 	".bash_profile" 
@@ -17,16 +17,14 @@ files=( ".vimrc"
 # source is arg1
 # destination is arg2
 copy (){
-	if [ -f "./$1" ]
+	if [ -f "$1" ]
 	then
-		cp "$HOME/$1" "$2"
+		cp "$1" "$2"
 		# copy the file name without the dot as well
 		cp "$1" "$2/${1:1}"
-		echo "copied $1"
-		
 	else
-		echo "$HOME/$1 does not exist"
-		echo "$HOME/$1 not copied "
+		echo "$1 does not exist"
+		echo "$1 not copied "
 	fi
 }
 
@@ -37,18 +35,15 @@ cd $HOME
 # for now only cat the file
 for i in "${files[@]}"
 do
-	copy $i "$DESTINATION"
+	cp "$SOURCE/$i" "$DESTINATION"
+	cp "$DESTINATION/$i" "$SOURCE"
 done
 
-# change to previous directory
-cd -
 cd "$DESTINATION"
+echo "$DESTINATION"
 git status
 git add .
 git remote -v
-# argument to make the commit followed by the date
 git commit -m "$1 $(date)"
 git push origin master
-
-# change the to previous directory
 cd -
