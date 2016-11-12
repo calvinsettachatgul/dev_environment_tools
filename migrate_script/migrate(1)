@@ -36,13 +36,13 @@ cd $HOME
 for i in "${files[@]}"
 do
 	cp "$SOURCE/$i" "$DESTINATION"
-	#cp "$DESTINATION/$i" "$SOURCE"
+	cp "$DESTINATION/$i" "$SOURCE"
 done
 
-#cd "$DESTINATION"
-#git status
-#git add .
-#git remote -v
-#git commit -m "$1 $(date)"
-#git push origin master
-#cd -
+cd "$DESTINATION"
+git status
+git add .
+git remote -v
+git commit -m "$1 $(date)"
+git push origin master
+cd -
