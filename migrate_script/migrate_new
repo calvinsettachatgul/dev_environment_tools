@@ -40,7 +40,6 @@ do
 done
 
 cd "$DESTINATION"
-echo "$DESTINATION"
 git status
 git add .
 git remote -v
