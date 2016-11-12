@@ -4,13 +4,8 @@
 
 echo running migrate!
 
-<<<<<<< HEAD
 DESTINATION=$HOME/Google\ Drive/calvins_dev_environment
 SOURCE="$HOME"
-=======
-DESTINATION="$HOME/Google\ Drive/calvins_dev_environment"
-SOURCE=""
->>>>>>> b5a077c0da9b269bcc4270cd85ae89a442c6a3d6
 
 files=( ".vimrc"
 	".bash_profile" 
@@ -40,21 +35,11 @@ cd $HOME
 # for now only cat the file
 for i in "${files[@]}"
 do
-<<<<<<< HEAD
 	cp "$SOURCE/$i" "$DESTINATION"
 	cp "$DESTINATION/$i" "$SOURCE"
-=======
-	echo "========================="
-	echo "========================="
-	echo "copy from $HOME to google drive"
-	copy $i "$DESTINATION"
-	echo "copy from google drive to home"
-	echo "$DESTINATION/$i" "****" "$HOME"
->>>>>>> b5a077c0da9b269bcc4270cd85ae89a442c6a3d6
 done
 
 cd "$DESTINATION"
-echo "$DESTINATION"
 git status
 git add .
 git remote -v
