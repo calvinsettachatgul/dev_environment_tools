@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# This is a script that will check the existance of configuration files and copy them to a central location
+
+echo running migrate!
+
+DESTINATION=$HOME/Google\ Drive/calvins_dev_environment
+SOURCE="$HOME"
+
+files=( ".vimrc"
+	".bash_profile" 
+	".bashrc"
+	".tmux.conf" 
+	".gitignore_global")
+
+# copy a file from source to destination
+# source is arg1
+# destination is arg2
+copy (){
+	if [ -f "$1" ]
+	then
+		cp "$1" "$2"
+		# copy the file name without the dot as well
+		cp "$1" "$2/${1:1}"
+	else
+		echo "$1 does not exist"
+		echo "$1 not copied "
+	fi
+}
+
+# change to $HOME
+cd $HOME
+
+# used to iterate over the array of files to call the copy function
+# for now only cat the file
+for i in "${files[@]}"
+do
+	cp "$SOURCE/$i" "$DESTINATION"
+	cp "$DESTINATION/$i" "$SOURCE"
+done
+
+cd "$DESTINATION"
+git status
+git add .
+git remote -v
+git commit -m "$1 $(date)"
+git push origin master
+cd -
